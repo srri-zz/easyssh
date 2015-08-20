@@ -81,6 +81,8 @@ func tryDecrypt(p *pem.Block, count int) ([]byte, error) {
 	return decodedKeyBytes, nil
 }
 
+// Connect takes no arguments and attempts to open an SSH connection.
+// It uses the easyssh Config and the parameters it contains.
 func (e *Config) Connect() error {
 	var sshConfig = &ssh.ClientConfig{}
 	var err error
@@ -107,6 +109,9 @@ func (e *Config) Connect() error {
 	return err
 }
 
+// Command executes a single string command.
+// To do so it opens a new SSH session, executes the command, and returns stdout as a string.
+// If it fails for any reasion it returns an empty string and an error.
 func (e *Config) Command(command string) (string, error) {
 	session, err := e.Client.NewSession()
 	if err != nil {
@@ -121,6 +126,9 @@ func (e *Config) Command(command string) (string, error) {
 	return stdout.String(), nil
 }
 
+// BatchCommands takes a string slice of commands and a string delimiter.
+// The delimiter is appended to the result of each command, it can be an empty string as well.
+// It returns whether there were any errors or not and outputs if there are any errors as it runs.
 func (e *Config) BatchCommands(commands []string, delimiter string) ([]string, error) {
 	results := make([]string, len(commands))
 	errors := false
