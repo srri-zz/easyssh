@@ -1,12 +1,15 @@
 # easyssh
 SSH wrapper for Go
 
-# Features:  
+## Features:  
 * Supports PEM key authentication (password protected, and non-password protected)
 * Supports password based authentication
 * Batch and single command processing
 
-# Usage:  
+## Docs:
+http://godoc.org/github.com/stevenbrichards/easyssh
+
+## Usage:  
 
 `go get github.com/stevenbrichards/easyssh`
 
