@@ -147,7 +147,7 @@ func (e *Config) BatchCommands(commands []string, delimiter string) ([]string, e
 			continue
 		}
 		output := strings.TrimSpace(stdout.String())
-		results = append(results, output)+delimiter)
+		results = append(results, output+delimiter)
 	}
 	if errors {
 		return results, fmt.Errorf("There were some errors while executing the commands")
