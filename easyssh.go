@@ -13,6 +13,7 @@ import (
 	"github.com/howeyc/gopass"
 	"golang.org/x/crypto/ssh"
 	"io/ioutil"
+	"strings"
 )
 
 type Config struct {
